@@ -1,0 +1,19 @@
+<h1>Master#index</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Impression</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @movies.each do |movie| %>
+        <tr>
+            <td><%= link_to movie.title, master_show_path %></td>
+            <td><%= movie.impression %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<%= link_to 'Review', master_new_path %>

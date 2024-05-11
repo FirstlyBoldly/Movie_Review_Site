@@ -1,0 +1,6 @@
+<h1>Master#new</h1>
+<%= form_with model: @movie do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_area :impression %>
+  <%= f.submit %>
+<% end %>
