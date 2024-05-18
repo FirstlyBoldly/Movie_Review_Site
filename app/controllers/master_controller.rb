@@ -4,9 +4,9 @@ class MasterController < ApplicationController
   end
 
   def create
-    movie = Movie.new(movie_params)
-    movie.save
-    redirect_to master_index_path
+    @movie = Movie.new(movie_params)
+    @movie.save
+    redirect_to root_path
   end
 
   def index
@@ -14,9 +14,23 @@ class MasterController < ApplicationController
   end
 
   def show
+    @movie = Movie.find(params[:id])
   end
 
   def edit
+    @movie = Movie.find(params[:id])
+  end
+
+  def update
+    @movie = Movie.find(params[:id])
+    @movie.update(movie_params)
+    redirect_to root_path
+  end
+
+  def destroy
+    @movie = Movie.find(params[:id])
+    @movie.destroy
+    redirect_to root_path
   end
 
   private
