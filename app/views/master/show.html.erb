@@ -1,3 +1,15 @@
-<h1>Master#show</h1>
-<p>Find me in app/views/master/show.html.erb</p>
-<%= link_to 'Home Page', master_index_path %>
+<div class="card" style="width: 18rem;">
+    <div class ="card-body">
+        <h5 class="card-title">
+            <%= @movie.title %>
+        </h5>
+        <p class="card-text">
+            <%= @movie.impression %>
+        </p>
+    </div>
+    <div class="card-body">
+        <%= link_to 'Edit', master_edit_path, class:"btn btn-secondary" %>
+        <%= link_to 'Delete', master_destroy_path(@movie.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure about that?" }, class:"btn btn-secondary" %>
+    </div>
+</div>
+

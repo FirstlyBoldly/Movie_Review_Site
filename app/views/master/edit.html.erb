@@ -1,2 +1,13 @@
-<h1>Master#edit</h1>
-<p>Find me in app/views/master/edit.html.erb</p>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <%= form_with model: @movie, url: master_update_path(@movie.id), method: :patch do |f| %>
+      <h5 class="card-title">
+        <%= f.text_field :title %>
+      </h5>
+      <p class="card-text">
+        <%= f.text_area :impression %>
+      </p>
+      <%= f.submit class:"btn btn-secondary"%>
+    <% end %>
+  </div>
+</div>

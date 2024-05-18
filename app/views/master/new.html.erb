@@ -1,6 +1,13 @@
-<h1>Master#new</h1>
-<%= form_with model: @movie do |f| %>
-  <%= f.text_field :title %>
-  <%= f.text_area :impression %>
-  <%= f.submit %>
-<% end %>
+<div class="card" style="width: 18rem;">
+  <div class ="card-body">
+    <%= form_with model: @movie do |f| %>
+      <h5 class="card-title">
+        <%= f.text_field :title %>
+      </h5>
+      <p class="card-text">
+        <%= f.text_area :impression %>
+      </p>
+      <%= f.submit class:"btn btn-secondary"%>
+    <% end %>
+  </div>
+</div>

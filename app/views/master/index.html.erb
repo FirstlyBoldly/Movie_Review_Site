@@ -1,19 +1,26 @@
-<h1>Master#index</h1>
-<table>
-    <thead>
+<h1>Movie List</h1>
+<br/>
+
+<table class="table table-striped table-hover table-bordered border-secondary">
+    <thead class="table-dark">
         <tr>
-            <th>Title</th>
-            <th>Impression</th>
+            <th><h3>Title</h3></th>
+            <th><h3>Impression</h3></th>
         </tr>
     </thead>
     <tbody>
         <% @movies.each do |movie| %>
         <tr>
-            <td><%= link_to movie.title, master_show_path %></td>
-            <td><%= movie.impression %></td>
+            <td>
+                <%= link_to movie.title, master_show_path(movie.id) %>
+            </td>
+            <td>
+                <%= movie.impression %>
+            </td>
         </tr>
         <% end %>
     </tbody>
 </table>
 
-<%= link_to 'Review', master_new_path %>
+<br/>
+<%= link_to 'Write a Review', master_new_path, class:"btn btn-secondary" %>
