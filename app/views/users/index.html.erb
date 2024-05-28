@@ -1,0 +1,23 @@
+<h1>User Index</h1>
+<br/>
+
+<table class="table table-striped table-hover table-bordered border-secondary">
+    <thead class="table-dark">
+        <tr>
+            <th><h2>Username</h2></th>
+            <th><h2>Contact Email</h2></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @users.each do |user| %>
+        <tr>
+            <td>
+                <%= link_to user.username, users_details_path(user.id) %>
+            </td>
+            <td>
+                <%= user.email %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

@@ -4,8 +4,9 @@
 <table class="table table-striped table-hover table-bordered border-secondary">
     <thead class="table-dark">
         <tr>
-            <th><h3>Title</h3></th>
-            <th><h3>Impression</h3></th>
+            <th><h2>Title</h2></th>
+            <th><h2>Impression</h2></th>
+            <th><h2>User Id</h2></th>
         </tr>
     </thead>
     <tbody>
@@ -17,10 +18,15 @@
             <td>
                 <%= movie.impression %>
             </td>
+            <td>
+                <%= movie.user_id %>
+            </td>
         </tr>
         <% end %>
     </tbody>
 </table>
 
-<br/>
-<%= link_to 'Write a Review', master_new_path, class:"btn btn-secondary" %>
+<% if user_signed_in? %>
+    <br/>
+    <%= link_to 'Write a Review', master_new_path, class:"btn btn-secondary" %>
+<% end %>
