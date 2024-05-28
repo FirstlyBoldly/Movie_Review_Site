@@ -7,9 +7,14 @@
             <%= @movie.impression %>
         </p>
     </div>
-    <div class="card-body">
-        <%= link_to 'Edit', master_edit_path, class:"btn btn-secondary" %>
-        <%= link_to 'Delete', master_destroy_path(@movie.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure about that?" }, class:"btn btn-secondary" %>
-    </div>
+    <% if user_signed_in? %>
+        <div class="card-body">
+            <%= link_to 'Edit', master_edit_path, class:"btn btn-secondary" %>
+            <%= link_to 'Delete', master_destroy_path(@movie.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure about that?" }, class:"btn btn-secondary" %>
+        </div>
+    <% else %>
+        <div class="card-body">
+            <%= link_to 'Back', root_path, class:"btn btn-dark" %>
+        </div>
+    <% end %>
 </div>
-

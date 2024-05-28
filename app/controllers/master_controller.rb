@@ -1,12 +1,16 @@
 class MasterController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   def new
     @movie = Movie.new
   end
 
   def create
     @movie = Movie.new(movie_params)
-    @movie.save
-    redirect_to root_path
+    if @movie.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def index
@@ -23,8 +27,11 @@ class MasterController < ApplicationController
 
   def update
     @movie = Movie.find(params[:id])
-    @movie.update(movie_params)
-    redirect_to root_path
+    if @movie.update(movie_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -35,6 +42,6 @@ class MasterController < ApplicationController
 
   private
   def movie_params
-    params.require(:movie).permit(:title, :impression)
+    params.require(:movie).permit(:title, :impression, :user_id)
   end
 end

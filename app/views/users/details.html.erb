@@ -1,0 +1,16 @@
+<h1>Details</h1>
+<br/>
+
+<div class="card" style="width: 18rem;">
+    <div class ="card-body">
+        <h5 class="card-title">
+            Username: <%= @user.username %>
+        </h5>
+        <p class="card-text">
+            Email Address: <%= @user.email %>
+        </p>
+    </div>
+    <div class="card-body">
+        <%= link_to 'Back', users_index_path, class:"btn btn-dark" %>
+    </div>
+</div>
